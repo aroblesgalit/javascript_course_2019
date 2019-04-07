@@ -312,7 +312,7 @@ there might be draws.
 
 GOOD LUCK :)
 */
-
+/*
 var avgScoreJohn = (92 + 120 + 109) / 3;
 var avgScoreMike = (95 + 120 + 106) / 3;
 var avgScoreMary = (98 + 120 + 103) / 3;
@@ -328,3 +328,33 @@ if (avgScoreJohn > avgScoreMike && avgScoreJohn > avgScoreMary) {
 else {
     console.log('It\'s a tie!');
 }
+
+
+/****************************
+* Functions
+*/
+
+// Name the function like you would name a variable (var)
+function calculateAge(birthYear) {
+    return 2019 - birthYear;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1948);
+var ageJane = calculateAge(1969);
+
+console.log(ageJohn, ageMike, ageJane);
+
+function yearsUntilRetirement(year, firstName) {
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    if (retirement > 0) {
+        console.log(firstName + ' retires in ' + retirement + ' years.');
+    } else {
+        console.log(firstName + ' is already retired.')
+    }
+}
+
+yearsUntilRetirement(1990, 'John');
+yearsUntilRetirement(1948, 'Mike');
+yearsUntilRetirement(1969, 'Jane');
