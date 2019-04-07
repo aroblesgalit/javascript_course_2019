@@ -366,7 +366,7 @@ yearsUntilRetirement(1969, 'Jane');
 
 // Function declaration
 // function whatDoYouDo(job, firstName) {}
-
+/*
 // Function expression
 var whatDoYouDo = function(job, firstName) {
     switch(job) {
@@ -384,3 +384,36 @@ var whatDoYouDo = function(job, firstName) {
 console.log(whatDoYouDo('teacher', 'John'));
 console.log(whatDoYouDo('designer', 'Jane'));
 console.log(whatDoYouDo('retired', 'Mark'));
+
+
+/****************************
+* Arrays
+*/
+
+// Initialize new array
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948); // Not usually used
+
+console.log(names[2]);
+console.log(names.length);
+
+// Mutate array data
+names[1] = 'Ben';
+names[names.length] = 'Mary';
+console.log(names);
+
+// Different data types
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+john.push('blue'); // Adds element at the end of array
+john.unshift('Mr.'); // Adds element at the beginning of array
+console.log(john);
+
+john.pop(); // Removes the last element of array
+john.shift(); // Removes the first element of array
+console.log(john);
+
+console.log(john.indexOf(1990)); // checks if element is in the array and returns it's index, if it's not in the array it then returns a -1
+
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+console.log(isDesigner);
