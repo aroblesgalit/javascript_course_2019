@@ -678,5 +678,26 @@ var john = {
     }
 }
 
+var mark = {
+    bills: [77, 375, 110, 45],
+    tip: [],
+    total: [],
+    tipCalc: function() {
+        for (var i = 0; i < this.bills.length; i++) {
+            if (this.bills[i] < 100) {
+                this.tip[i] = .2 * this.bills[i];
+                this.total[i] = this.tip[i] + this.bills[i];
+            } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
+                this.tip[i] = .1 * this.bills[i];
+                this.total[i] = this.tip[i] + this.bills[i];
+            } else {
+                this.tip[i] = .25 * this.bills[i];
+                this.total[i] = this.tip[i] + this.bills[i];
+            }
+        }
+    }
+}
+
 john.tipCalc();
-console.log(john);
+mark.tipCalc();
+console.log(john, mark);
