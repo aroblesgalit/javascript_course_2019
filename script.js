@@ -701,3 +701,24 @@ var mark = {
 john.tipCalc();
 mark.tipCalc();
 console.log(john, mark);
+
+function avgTip(name) {
+    var tipLength = name.tip.length;
+    var sum = 0;
+    for (var i = 0; i < tipLength; i++) {
+        sum += name.tip[i];
+    };
+    var avgSum = sum / tipLength;
+    return avgSum;
+}
+
+avgTip(john);
+avgTip(mark);
+
+if (avgTip(john) > avgTip(mark)) {
+    console.log('John\'s family had the higher tip average.');
+} else if (avgTip(mark) > avgTip(john)) {
+    console.log('Mark\'s family had the higher tip average.');
+} else {
+    console.log('John\'s and Mark\'s families have the same tip average.');
+}
