@@ -13,4 +13,7 @@ Global Execution Context
 
 lastName === window.lastName   // true
 
+38. Execution Contexts in Detail...
+39. Hoisting in Practice
+
 */
