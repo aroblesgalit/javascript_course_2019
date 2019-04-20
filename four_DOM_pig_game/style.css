@@ -45,6 +45,24 @@ body {
     padding: 100px;
 }
 
+input[type=number] {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
+    color: #555;
+    font-size: 18px;
+    font-family: 'Lato';
+    text-align: center;
+    padding: 10px;
+    width: 190px;
+    text-transform: uppercase;
+}
+
+input[type=number]:focus {
+    outline: none;
+}
+
 
 
 /**********************************************
