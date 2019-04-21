@@ -1,3 +1,4 @@
+//////////////////////////////////
 // Function constructor
 /*
 var john = {
@@ -32,7 +33,7 @@ console.log(john.lastName, jane.lastName, mark.lastName);
 
 
 
-
+//////////////////////////////////
 // Object.create
 /*
 var personProto = {
@@ -58,7 +59,7 @@ var jane = Object.create(personProto,
 
 
 
-
+//////////////////////////////////
 // Primitive vs objects
 /*
 // Primitives
@@ -97,7 +98,7 @@ console.log(obj.city);
 */
 
 
-
+//////////////////////////////////
 // Lecture: Passing Functions as arguments
 /*
 var years = [1990, 1965, 1937, 2005, 1998];
@@ -135,7 +136,7 @@ console.log(rates);
 */
 
 
-
+//////////////////////////////////
 // Lecture: Functions returning functions
 /*
 function interviewQuestion(job) {
@@ -165,7 +166,7 @@ designerQuestion('Mike');
 
 interviewQuestion('teacher')('Mark');
 */
-
+/*
 // My own practice for functions returning functions
 function workout(day) {
     if (day === 'Monday' || day === 'Thursday') {
@@ -203,6 +204,34 @@ workout('Tuesday')(6);
 workout('Friday')(8);
 workout('Wednesday')(10);
 workout('Sunday')(12);
+*/
+
+
+
+//////////////////////////////////
+// Lecture: IIFE
+
+/*
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+
+game();
+*/
+
+(function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+// console.log(score);
+
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);
+
 
 
 
