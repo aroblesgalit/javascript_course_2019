@@ -390,36 +390,76 @@ the correct answer such as you displayed it on Task 4.
 
 */
 
+// 1. Function constructor called Question - includes a question, answers, correct answer
 var Question = function(question, answers, correctAnswer) {
     this.question = question;
     this.answers = answers;
     this.correctAnswer = correctAnswer;
 };
 
-var questionOne = new Question('Is Java the same as JavaScript?', ['1: Yes', '2: No', '3: Sometimes'], 2);
-var questionTwo = new Question('How many weeks are in a year?', ['1: 30', '2: 42', '3: 50', '4: 52'], 4);
+// 2. Create a couple of questions
+var questionOne = new Question('What is my name?', ['1: John', '2: Mark', '3: Ashley', '4: Alvin'], 4);
+var questionTwo = new Question('How old am I?', ['1: 18', '2: 24', '3: 32', '4: 38'], 3);
 
+// 3. Store the questions in an array
 var questions = [questionOne, questionTwo];
 
+// 4. Log it on the console, together with the possible answers
 Question.prototype.logQuestion = function() {
-    var randomNum = Math.round(Math.random());
-    console.log(questions[randomNum].question);
-    for (var i = 0; i < questions[randomNum].answers.length; i++) {
-        console.log(questions[randomNum].answers[i]);
+    console.log(this.question);
+    for (var i = 0; i < this.answers.length; i++) {
+        console.log(this.answers[i]);
     };
-    var userInput = prompt('Please select the correct answer (Just type the number)');
-    questions[randomNum].isCorrect(userInput);
-}
-
-Question.prototype.isCorrect = function(userInput) {
-    if (this.userInput === this.correctAnswer) {
+    var userInput = prompt('Type the number of the correct answer.');
+    if (userInput == this.correctAnswer) {
         console.log('You are correct!');
+    } else if (userInput == 'exit') {
+        return ;
     } else {
-        console.log('Sorry. That is wrong.');
+        console.log('Sorry. That is the wrong answer.');
     }
-}
+    selectQuestion();    
+};
 
-questionOne.logQuestion();
+// Select random question
+var selectQuestion = function() {
+    var randomNum = Math.round(Math.random());
+    questions[randomNum].logQuestion();
+};
+
+// Initialize code
+selectQuestion();
+
+// var Question = function(question, answers, correctAnswer) {
+//     this.question = question;
+//     this.answers = answers;
+//     this.correctAnswer = correctAnswer;
+// };
+
+// var questionOne = new Question('Is Java the same as JavaScript?', ['1: Yes', '2: No', '3: Sometimes'], 2);
+// var questionTwo = new Question('How many weeks are in a year?', ['1: 30', '2: 42', '3: 50', '4: 52'], 4);
+
+// var questions = [questionOne, questionTwo];
+
+// Question.prototype.logQuestion = function() {
+//     var randomNum = Math.round(Math.random());
+//     console.log(questions[randomNum].question);
+//     for (var i = 0; i < questions[randomNum].answers.length; i++) {
+//         console.log(questions[randomNum].answers[i]);
+//     };
+//     var userInput = prompt('Please select the correct answer (Just type the number)');
+//     questions[randomNum].isCorrect(userInput);
+// }
+
+// Question.prototype.isCorrect = function(userInput) {
+//     if (this.userInput === this.correctAnswer) {
+//         console.log('You are correct!');
+//     } else {
+//         console.log('Sorry. That is wrong.');
+//     }
+// }
+
+// questionOne.logQuestion();
 
 
 
