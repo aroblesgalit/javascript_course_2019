@@ -390,6 +390,8 @@ the correct answer such as you displayed it on Task 4.
 
 */
 
+/* My solution --------------------
+
 // 1. Function constructor called Question - includes a question, answers, correct answer
 var Question = function(question, answers, correctAnswer) {
     this.question = question;
@@ -430,36 +432,60 @@ var selectQuestion = function() {
 // Initialize code
 selectQuestion();
 
-// var Question = function(question, answers, correctAnswer) {
-//     this.question = question;
-//     this.answers = answers;
-//     this.correctAnswer = correctAnswer;
-// };
+*/
 
-// var questionOne = new Question('Is Java the same as JavaScript?', ['1: Yes', '2: No', '3: Sometimes'], 2);
-// var questionTwo = new Question('How many weeks are in a year?', ['1: 30', '2: 42', '3: 50', '4: 52'], 4);
+// Instructor's solution
 
-// var questions = [questionOne, questionTwo];
-
-// Question.prototype.logQuestion = function() {
-//     var randomNum = Math.round(Math.random());
-//     console.log(questions[randomNum].question);
-//     for (var i = 0; i < questions[randomNum].answers.length; i++) {
-//         console.log(questions[randomNum].answers[i]);
-//     };
-//     var userInput = prompt('Please select the correct answer (Just type the number)');
-//     questions[randomNum].isCorrect(userInput);
-// }
-
-// Question.prototype.isCorrect = function(userInput) {
-//     if (this.userInput === this.correctAnswer) {
-//         console.log('You are correct!');
-//     } else {
-//         console.log('Sorry. That is wrong.');
-//     }
-// }
-
-// questionOne.logQuestion();
-
-
+// 7. Invoke function so it doesn't interfere with other people's code
+(function() {
+    function Question(question, answers, correct) {
+        this.question = question;
+        this.answers = answers;
+        this.correct = correct;
+    }
+    
+    Question.prototype.displayQuestion = function() {
+        console.log(this.question);
+    
+        for (var i = 0; i < this.answers.length; i++) {
+            console.log( i + ': ' + this.answers[i]);
+        }
+    }
+    
+    Question.prototype.checkAnswer = function(ans) {
+        if (ans === this.correct) {
+            console.log('Correct answer!');
+        } else {
+            console.log('Wrong answer. Try again :)');
+        }
+    }
+    
+    var q1 = new Question(
+        'Is JavaScript the coolest programming language in the world?',
+        ['Yes', 'No'],
+        0    
+    );
+    
+    var q2 = new Question(
+        'What is the name of this course\'s teacher?',
+        ['John', 'Michael', 'Jonas'],
+        2
+    );
+    
+    var q3 = new Question(
+        'What does best describe coding?',
+        ['Boring', 'Hard', 'Fun', 'Tedious'],
+        2
+    );
+    
+    var questions = [q1, q2, q3];
+    
+    var n = Math.floor(Math.random() * questions.length);
+    
+    questions[n].displayQuestion();
+    
+    var answer = parseInt(prompt('Please select the correct answer.'));
+    
+    questions[n].checkAnswer(answer);
+})();
 
