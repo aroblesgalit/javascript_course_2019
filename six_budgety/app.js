@@ -1,31 +1,33 @@
-/* 
-Project Planning and Architecture: Step 1
-/*
+var budgetController = (function() {
 
-// To-Do List
-/*
-Add event handler
-Get input values
-Add the new item to our data structure
-Add the new item to the UI
-Calculate budget
-Update the UI
-*/
+    var x = 23;
 
-// UI Module
-/*
-Get input values
-Add the new item to the UI
-Update the UI
-*/
+    var add = function(a) {
+        return x + a;
+    };
 
-// Data Module
-/*
-Add the new item to our data structure
-Calculate budget
-*/
+    return {
+        publicTest: function(b) {
+            return add(b);
+        }
+    }
 
-// Controller
-/*
-Add event handler
-*/
+})();
+
+var UIController = (function() {
+
+    // Some code
+
+})();
+
+var controller = (function(budgetCtrl, UICtrl) {
+
+    var z = budgetCtrl.publicTest(5);
+
+    return {
+        anotherPublic: function() {
+            return z;
+        }
+    }
+
+})(budgetController, UIController);
